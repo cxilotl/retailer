@@ -28,12 +28,21 @@ const config = {
     // }
 
     module: {
-
-        // rules: [
-        //     {
-        //         use: 'babel-loader'
-        //     }
-        // ]
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: 'style-loader' },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true
+                        }
+                    }
+                ]
+            }
+            // { use: 'babel-loader' }
+        ]
     },
 
     plugins: [
