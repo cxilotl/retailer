@@ -1,0 +1,32 @@
+{
+    "name": "clothes-retailer",
+    "version": "1.0.0",
+    "description": "Small clothes retailer site",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "webpack && npm start",
+        "test": ""
+    },
+    "author": "Carlos Xilotl",
+    "license": "ISC",
+    "engines": {
+        "node": "6.9.4"
+    },
+    "devDependencies": {
+        "file-loader": "^0.11.1",
+        "html-webpack-plugin": "^2.28.0",
+        "jest": "^20.0.1",
+        "webpack": "^2.5.1"
+    },
+    "dependencies": {
+        "bootstrap": "^3.3.7",
+        "express": "^4.15.2"
+    },
+    "jest": {
+        "testEnvironment": "node",
+        "collectCoverageFrom": [
+            "src/*.js"
+        ]
+    }
+}
