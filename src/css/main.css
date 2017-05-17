@@ -1,0 +1,5 @@
+@import url('layout.css'); /* Cannot use stylelint-loader wo follow css import */
+
+body {
+    background: cornsilk;
+}

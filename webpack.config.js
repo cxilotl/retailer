@@ -1,62 +1,81 @@
-let debug = process.env.NODE_ENV !== "production";
+let debug = process.env.NODE_ENV !== 'production';
 
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const DIST_DIR = path.join(__dirname, "dist");
-const CLIENT_DIR = path.join(__dirname, "src");
+// Plugins
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+
+// const DIST_DIR = path.join(__dirname, 'dist');
+// const CLIENT_DIR = path.join(__dirname, 'src');
+
+const APP_PATHS = {
+    SRC_DIR     : path.join(__dirname, 'src'),
+    BUILD_DIR   : path.join(__dirname, 'dist')
+};
 
 const config = {
     context: path.join(__dirname),
 
-    devtool: debug ? "inline-sourcemap" : null,
+    devtool: debug ? 'inline-sourcemap' : null,
 
-    // entry: "./js/scripts.js",
-    // entry: './src/index.js',
-    entry: CLIENT_DIR + '/index.js',
+    entry: APP_PATHS.SRC_DIR + '/index.js',
 
     output: {
-        // path: __dirname + "/src/js",
-        // path    : path.resolve(__dirname, 'dist'),
-        path    : DIST_DIR,
-        filename: "bundle.js"
+        path    : APP_PATHS.BUILD_DIR,
+        filename: 'bundle.js'
     },
 
-    // resolve: {
-    //     extensions: ['', '.js', '.es']
-    // }
+    resolve: {
+        modules: ["node_modules"]
+    },
 
     module: {
         rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                enforce: 'pre',
+                loader: 'eslint-loader',
+                options: {
+                    emitWarning: true,
+                    failOnError: true
+                }
+            },
+            // {
+            //     test: /\.css$/,
+            //     include: /src/,
+            //     exclude: /node_modules/,
+            //     enforce: 'pre',
+            //     loader: 'postcss-loader',
+            //     options: {
+            //         plugins: () => ([
+            //             require('stylelint')()
+            //         ])
+            //     }
+            // },
             {
                 test: /\.css$/,
                 use: [
                     { loader: 'style-loader' },
                     {
                         loader: 'css-loader',
-                        options: {
-                            modules: true
-                        }
+                        // options: {
+                        //     modules: true
+                        // }
                     }
                 ]
             }
-            // { use: 'babel-loader' }
         ]
     },
 
+
     plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template: 'template.html'
+        new StyleLintPlugin({
+            files: 'src/**/*.css',
+            quiet: false
         })
     ]
-
-    // plugins: debug ? [] : [
-    //     new webpack.optimize.DedupePlugin(),
-    //     new webpack.optimize.OccurenceOrderPlugin(),
-    //     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-    // ]
 
 };
 
