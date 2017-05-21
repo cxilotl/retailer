@@ -1,9 +1,10 @@
 const path = require("path"),
     express = require("express");
 
-// const DIST_DIR = path.join(__dirname, "dist"),
-const DIST_DIR = path.join(__dirname, "."),
-    PORT = 3000,
+const DIST_DIR = path.join(__dirname, "build"),
+// const DIST_DIR = path.join(__dirname, "."),
+//     PORT = 3000,
+    PORT = 8080,
     app = express();
 
 //Serving the files on the dist folder

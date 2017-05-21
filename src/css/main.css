@@ -1,5 +1,8 @@
-@import url('layout.css'); /* Cannot use stylelint-loader wo follow css import */
+@import url('layout.css');
 
 body {
     background: cornsilk;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
