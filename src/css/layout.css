@@ -1,3 +1,24 @@
 body {
-    color: #00F;
+    color: #000;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    width: 100%;
+}
+
+header .header__title {
+    margin: 10px auto;
+}
+
+header .header__cart {
+    height: auto;
+    width: 80px;
+    border: solid 1px #333;
+    border-radius: 3px;
 }

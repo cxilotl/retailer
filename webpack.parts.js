@@ -159,3 +159,24 @@ exports.clean = (path) => ({
         new CleanWebpackPlugin([path])
     ]
 });
+
+// Loading images
+exports.loadImages = ({include, exclude, options} = {}) => ({
+
+    module: {
+        rules: [
+            {
+                test: /\.(png|jpg|svg)$/,
+                include,
+                exclude,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options,
+                    }
+                ]
+            }
+        ]
+    }
+
+});

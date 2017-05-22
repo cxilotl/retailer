@@ -1,0 +1,8 @@
+.product_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    position: relative;
+}

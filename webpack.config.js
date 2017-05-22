@@ -68,6 +68,13 @@ const prodConfig = merge([
         }
     }),
 
+    parts.loadImages({
+        options: {
+            limit: 15000,
+            name: '[name].[ext]'
+        }
+    }),
+
     parts.minifyCSS({
         options: {
             safe: true,
@@ -91,9 +98,14 @@ const devConfig = merge([
     }),
 
     parts.loadHTML({
+        include: APP_PATHS.SRC_DIR,
         options : {
             minimize: false
         }
+    }),
+
+    parts.loadImages({
+        // include: APP_PATHS.SRC_DIR,
     }),
 
     parts.loadCSS({
@@ -102,7 +114,7 @@ const devConfig = merge([
             /node_modules\/bootstrap\/dist\/css\/bootstrap/
         ],
         exclude: /node_modules/,
-    })
+    }),
 
 ]);
 

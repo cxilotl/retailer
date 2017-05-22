@@ -1,21 +1,11 @@
 require('./css/main.css');
-var structureTmpl = require('./templates/structure.html');
 
-// var Test = require('./js/test.js');
+// var $ = require('jquery');
+var AppView = require('./js/AppView');
 
-// var test = new Test();
-// test.logger();
-
-var mainStructure = document.getElementsByName('body');
-
-console.log(mainStructure);
-console.log(structureTmpl);
-
-// if (mainStructure) {
-mainStructure.innerHTML = structureTmpl;
-// }
-
-
-// var hello = document.getElementById('main');
-// hello.innerHTML = 'Hello World!';
+// $('#main-content').html( new AppView.render().$el );
+var appView = new AppView({
+    el: '#main_content'
+});
+appView.render();
 

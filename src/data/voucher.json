@@ -1,0 +1,22 @@
+{
+    "vouchers": [
+        {
+            "code": "TOTAL",
+            "name": "Off your order",
+            "value": 5.00
+        },
+        {
+            "code": "OVERTOTAL",
+            "name": "Off when you spend over £50.00",
+            "value": 10.00,
+            "minimum": 50.00
+        },
+        {
+            "code": "OVERTOTALMINIMUM",
+            "category": "Footwear",
+            "name": "Off when you have bought at least one footwear item and spent over £75.00",
+            "value": 15.00,
+            "minimum": 75.00
+        }
+    ]
+}
