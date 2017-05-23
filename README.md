@@ -44,3 +44,5 @@ All files should be minified.
 In order to run the production server, type the command: npm run start:prod
 Once started, go the the following URL to see the site: http://localhost:8080/
 
+6. For running the tests
+In order to run the test and see the coverage report, type: npm run test:jest
